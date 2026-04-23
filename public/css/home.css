@@ -1,0 +1,447 @@
+/* =========================================
+   HOME PAGE SPECIFIC STYLES
+   ========================================= */
+
+/* --- Typography Helpers --- */
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+/* --- Navbar --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.logo i {
+  color: var(--primary);
+  font-size: 1.8rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width var(--transition-normal);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+  padding-top: 120px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative glowing orb */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(243, 80, 29, 0.15) 0%, rgba(19, 19, 26, 0) 70%);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-size: 4rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 90%;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 1.1rem;
+}
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pizza-glow {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  background: radial-gradient(circle, rgba(249, 195, 44, 0.2) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.floating-pizza {
+  width: 100%;
+  max-width: 500px;
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* --- Sections Common --- */
+.section {
+  padding: 6rem 0;
+}
+
+/* --- Features (Beneficios) --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature-card {
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  background: rgba(243, 80, 29, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- Specialties --- */
+.specialties-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.pizza-card {
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+}
+
+.pizza-card:hover {
+  transform: translateY(-8px);
+}
+
+.card-img-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pizza-card:hover .card-img-wrapper img {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-body h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  min-height: 65px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1rem;
+}
+
+.price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  color: var(--accent);
+}
+
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+/* --- CTA Builder --- */
+.cta-builder {
+  background: linear-gradient(0deg, var(--bg-tertiary) 0%, var(--bg-main) 100%);
+}
+
+.cta-box {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+.mt-4 { margin-top: 2rem; }
+.mt-2 { margin-top: 0.5rem; }
+
+/* --- Footer --- */
+.footer {
+  background-color: var(--bg-tertiary);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand p {
+  max-width: 300px;
+}
+
+.footer h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.footer-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  color: #fff;
+  font-size: 1.2rem;
+  transition: all var(--transition-normal);
+}
+
+.social-icons a:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--glass-border);
+  font-size: 0.9rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-subtitle {
+    margin: 0 auto;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .features-grid, .specialties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* In a real app we'd add a hamburger menu */
+  }
+  .hero-title {
+    font-size: 3rem;
+  }
+  .features-grid, .specialties-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-brand p {
+    margin: 0 auto;
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* Animations for JS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

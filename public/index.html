@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizzería Premium | Artisan Food</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/home.css">
+  <!-- Boxicons para iconos limpios -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+  <!-- NAVBAR GLASSMORPHISM -->
+  <header class="navbar glass-panel">
+    <div class="container nav-content">
+      <div class="logo">
+        <i class='bx bxs-pizza'></i>
+        <span>Pizza<span class="text-gradient">Tech</span></span>
+      </div>
+      <nav class="nav-links">
+        <a href="#especialidades">Especialidades</a>
+        <a href="#beneficios">Por qué nosotros</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="/login.html" class="btn btn-outline">Iniciar Sesión</a>
+        <a href="/builder.html" class="btn btn-primary">Arma tu Pizza</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="badge glass-panel"><i class='bx bxs-flame' style='color:var(--primary)'></i> Horneadas a la leña</div>
+        <h1 class="hero-title">La Pizza Perfecta,<br>Hecha a <span class="text-gradient">Tu Manera</span></h1>
+        <p class="hero-subtitle">Ingredientes premium, masa artesanal de fermentación lenta y el toque exacto de fuego. Crea la pizza de tus sueños o elige una de nuestras obras maestras.</p>
+        <div class="hero-buttons">
+          <a href="/builder.html" class="btn btn-primary btn-lg">Comenzar a Crear <i class='bx bx-right-arrow-alt'></i></a>
+          <a href="#especialidades" class="btn btn-outline btn-lg">Ver Especialidades</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Reemplazar src por la ruta de la imagen generada, que está en los artefactos pero usaremos una ruta genérica de asset o dejamos la imagen flotante -->
+        <div class="pizza-glow"></div>
+        <img src="/assets/hero-pizza.png" alt="Pizza Premium" class="floating-pizza" id="heroPizza">
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section id="beneficios" class="features section">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card glass-panel">
+          <div class="icon-box"><i class='bx bx-leaf'></i></div>
+          <h3>Ingredientes Frescos</h3>
+          <p>Seleccionamos diariamente los mejores vegetales y embutidos locales.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="icon-box"><i class='bx bxs-hot'></i></div>
+          <h3>Horno Artesanal</h3>
+          <p>Masa con bordes inflados y crujientes gracias a nuestro horno de piedra a 400°C.</p>
+        </div>
+        <div class="feature-card glass-panel">
+          <div class="icon-box"><i class='bx bx-timer'></i></div>
+          <h3>Entrega Exprés</h3>
+          <p>Tu pizza sale del horno y llega a tu puerta en menos de 30 minutos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES -->
+  <section id="especialidades" class="specialties section">
+    <div class="container">
+      <h2 class="section-title">Nuestras <span class="text-gradient">Especialidades</span></h2>
+      <div class="specialties-grid">
+        <!-- Card 1 -->
+        <div class="pizza-card glass-panel">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&q=80&w=400&h=300" alt="Margherita">
+          </div>
+          <div class="card-body">
+            <h3>Margherita Suprema</h3>
+            <p>Salsa de tomate San Marzano, mozzarella di bufala fresca, albahaca y aceite de oliva extra virgen.</p>
+            <div class="card-footer">
+              <span class="price">$ 35.000</span>
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="pizza-card glass-panel">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80&w=400&h=300" alt="Pepperoni">
+          </div>
+          <div class="card-body">
+            <h3>Pepperoni Doble Fuego</h3>
+            <p>Doble porción de pepperoni crujiente, mozzarella fundida y un toque de miel picante.</p>
+            <div class="card-footer">
+              <span class="price">$ 42.000</span>
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="pizza-card glass-panel">
+          <div class="card-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=400&h=300" alt="Vegetariana">
+          </div>
+          <div class="card-body">
+            <h3>Huerto Trufado</h3>
+            <p>Champiñones silvestres, cebolla caramelizada, aceite de trufa negra y parmesano reggiano.</p>
+            <div class="card-footer">
+              <span class="price">$ 45.000</span>
+              <button class="btn btn-primary btn-sm">Ordenar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-builder section">
+    <div class="container">
+      <div class="cta-box glass-panel">
+        <div class="cta-content">
+          <h2>¿No encuentras tu pizza ideal?</h2>
+          <p>Usa nuestro constructor interactivo 3D y añade exactamente los ingredientes que te hacen feliz.</p>
+          <a href="/builder.html" class="btn btn-primary btn-lg mt-4">Armar mi propia Pizza</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <i class='bx bxs-pizza'></i>
+          <span>Pizza<span class="text-gradient">Tech</span></span>
+        </div>
+        <p class="mt-2 text-muted">Redefiniendo la experiencia de la pizza a través de la tecnología y el sabor artesanal.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Enlaces Rápidos</h4>
+        <ul>
+          <li><a href="/builder.html">Constructor</a></li>
+          <li><a href="#especialidades">Menú</a></li>
+          <li><a href="/login.html">Mi Cuenta</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Síguenos</h4>
+        <div class="social-icons">
+          <a href="#"><i class='bx bxl-instagram'></i></a>
+          <a href="#"><i class='bx bxl-twitter'></i></a>
+          <a href="#"><i class='bx bxl-tiktok'></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom text-muted">
+      <p>&copy; 2026 PizzaTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth-state.js"></script>
+  <script src="/js/home.js"></script>
+</body>
+</html>

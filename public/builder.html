@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurador 3D | PizzaTech</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/builder.css">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="builder-body">
+  
+  <header class="builder-topbar glass-panel">
+    <div class="topbar-brand">
+      <a href="/index.html" class="back-link"><i class='bx bx-left-arrow-alt'></i> Volver</a>
+      <div class="logo">
+        <i class='bx bxs-pizza'></i>
+        <span>Pizza<span class="text-gradient">Tech</span></span>
+      </div>
+    </div>
+    <div class="topbar-center">
+      <p id="sessionInfo">Validando sesión...</p>
+    </div>
+    <div class="topbar-actions">
+      <button id="resetPizzaBtn" type="button" class="btn-outline btn-sm"><i class='bx bx-refresh'></i> Reiniciar</button>
+      <button id="logoutBtn" type="button" class="btn-outline btn-sm btn-danger-outline"><i class='bx bx-log-out'></i> Salir</button>
+    </div>
+  </header>
+
+  <main class="builder-dashboard">
+    <!-- COLUMNA IZQUIERDA: CONTROLES -->
+    <aside class="dashboard-sidebar">
+      <div class="sidebar-header">
+        <h2>Personaliza tu Pizza</h2>
+        <p class="text-muted">Sigue los pasos para crear tu obra maestra.</p>
+      </div>
+
+      <div class="config-steps">
+        <!-- Paso 1 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <h3>Tamaño</h3>
+          </div>
+          <div id="sizeOptions" class="options-pills"></div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <h3>Base y Masa</h3>
+          </div>
+          <div id="doughOptions" class="options-pills"></div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <h3>Elige la Salsa</h3>
+          </div>
+          <div id="sauceOptions" class="options-pills"></div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">4</div>
+            <h3>Toppings Premium</h3>
+          </div>
+          <div id="toppingOptions" class="toppings-grid"></div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="step-card">
+          <div class="step-header">
+            <div class="step-number">5</div>
+            <h3>Estilo de Corte</h3>
+          </div>
+          <div id="cutOptions" class="options-pills"></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- COLUMNA DERECHA: VISUALIZADOR Y RESUMEN -->
+    <section class="dashboard-main">
+      <div class="main-content-wrapper">
+        
+        <!-- Lienzo de la Pizza -->
+        <div class="pizza-visualizer">
+          <div class="pizza-stage">
+            <!-- Plato de pizarra -->
+            <div class="slate-plate"></div>
+            
+            <div id="pizzaCanvas" class="pizza">
+              <div class="dough"></div>
+              <div class="sauce"></div>
+              <div class="toppings"></div>
+              <div class="cuts"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resumen Sticky -->
+        <aside class="summary-sidebar">
+          <div class="summary-card glass-panel">
+            <div class="summary-header">
+              <i class='bx bx-receipt'></i>
+              <h3>Resumen del Pedido</h3>
+            </div>
+            
+            <div class="summary-body">
+              <div class="summary-row">
+                <div class="summary-label">Tamaño</div>
+                <div id="summarySize" class="summary-value"></div>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-row">
+                <div class="summary-label">Masa Base</div>
+                <div id="summaryDough" class="summary-value"></div>
+              </div>
+              
+              <div class="summary-divider"></div>
+              
+              <div class="summary-row">
+                <div class="summary-label">Salsa</div>
+                <div id="summarySauce" class="summary-value"></div>
+              </div>
+
+              <div class="summary-divider"></div>
+
+              <div class="summary-row toppings-section">
+                <div class="summary-label mb-2">Ingredientes Extra</div>
+                <div id="summaryToppings" class="summary-value toppings-list"></div>
+              </div>
+              
+              <div class="summary-divider"></div>
+
+              <div class="summary-row">
+                <div class="summary-label">Corte</div>
+                <div id="summaryCut" class="summary-value"></div>
+              </div>
+            </div>
+
+            <div class="summary-footer">
+              <div class="total-row">
+                <span>Total Estimado</span>
+                <span id="summaryTotal" class="total-price">$ 30.000</span>
+              </div>
+              <button class="btn btn-primary btn-full"><i class='bx bx-cart-add'></i> Añadir al Carrito</button>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Scripts -->
+  <script src="/js/api.js"></script>
+  <script src="/js/auth-state.js"></script>
+  <script src="/js/pizza-state.js"></script>
+  <script src="/js/pizza-render.js"></script>
+  <script src="/js/pizza-animations.js"></script>
+  <script src="/js/builder.js"></script>
+</body>
+</html>

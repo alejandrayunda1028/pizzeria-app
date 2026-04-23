@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso | PizzaTech</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="auth-page">
+  <!-- Back to Home -->
+  <a href="/index.html" class="back-btn"><i class='bx bx-left-arrow-alt'></i> Volver</a>
+
+  <main class="auth-container">
+    <div class="auth-card glass-panel">
+      <div class="auth-header">
+        <div class="logo">
+          <i class='bx bxs-pizza'></i>
+          <span>Pizza<span class="text-gradient">Tech</span></span>
+        </div>
+        <p class="auth-subtitle">Ingresa para crear tu pizza ideal</p>
+      </div>
+
+      <div class="auth-toggle">
+        <button id="btnShowLogin" class="toggle-btn active">Iniciar Sesión</button>
+        <button id="btnShowRegister" class="toggle-btn">Registrarse</button>
+      </div>
+
+      <!-- Formulario de Login -->
+      <form id="loginForm" class="auth-form active">
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Correo electrónico" required>
+          <i class='bx bx-envelope'></i>
+        </div>
+        <div class="input-group">
+          <input type="password" name="password" placeholder="Contraseña" required>
+          <i class='bx bx-lock-alt'></i>
+        </div>
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox"> Recordarme
+          </label>
+          <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Entrar <i class='bx bx-right-arrow-alt'></i>
+        </button>
+      </form>
+
+      <!-- Formulario de Registro -->
+      <form id="registerForm" class="auth-form">
+        <div class="input-group">
+          <input type="text" name="name" placeholder="Nombre completo" required>
+          <i class='bx bx-user'></i>
+        </div>
+        <div class="input-group">
+          <input type="email" name="email" placeholder="Correo electrónico" required>
+          <i class='bx bx-envelope'></i>
+        </div>
+        <div class="input-group" style="margin-bottom: 8px;">
+          <input type="password" id="regPassword" name="password" placeholder="Contraseña segura" required>
+          <i class='bx bx-lock-alt'></i>
+        </div>
+        <div class="password-hints">
+          <p id="hint-length" class="hint"><i class='bx bx-x'></i> Mínimo 8 caracteres</p>
+          <p id="hint-upper" class="hint"><i class='bx bx-x'></i> Una mayúscula</p>
+          <p id="hint-lower" class="hint"><i class='bx bx-x'></i> Una minúscula</p>
+          <p id="hint-number" class="hint"><i class='bx bx-x'></i> Un número</p>
+          <p id="hint-special" class="hint"><i class='bx bx-x'></i> Carácter especial</p>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Crear cuenta <i class='bx bx-user-plus'></i>
+        </button>
+      </form>
+
+      <div id="authMessage" class="auth-message"></div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
