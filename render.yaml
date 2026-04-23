@@ -5,11 +5,7 @@ services:
     buildCommand: npm install
     startCommand: npm start
     envVars:
-      - key: DB_PATH
-        value: /data/database.sqlite
       - key: NODE_ENV
         value: production
-    disk:
-      name: sqlite-data
-      mountPath: /data
-      sizeGB: 1
+      - key: NODE_VERSION
+        value: 20.x
