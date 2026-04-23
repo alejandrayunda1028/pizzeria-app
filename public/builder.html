@@ -23,6 +23,7 @@
       <p id="sessionInfo">Validando sesión...</p>
     </div>
     <div class="topbar-actions">
+      <button id="cartBtn" type="button" class="btn-outline btn-sm"><i class='bx bx-cart'></i> Carrito (<span id="cartCount">0</span>)</button>
       <button id="resetPizzaBtn" type="button" class="btn-outline btn-sm"><i class='bx bx-refresh'></i> Reiniciar</button>
       <button id="logoutBtn" type="button" class="btn-outline btn-sm btn-danger-outline"><i class='bx bx-log-out'></i> Salir</button>
     </div>
@@ -151,7 +152,7 @@
                 <span>Total Estimado</span>
                 <span id="summaryTotal" class="total-price">$ 30.000</span>
               </div>
-              <button class="btn btn-primary btn-full"><i class='bx bx-cart-add'></i> Añadir al Carrito</button>
+              <button id="addToCartBtn" class="btn btn-primary btn-full"><i class='bx bx-cart-add'></i> Añadir al Carrito</button>
             </div>
           </div>
         </aside>
@@ -160,6 +161,25 @@
     </section>
   </main>
 
+  <!-- Cart Modal -->
+  <div id="cartModal" class="modal-overlay">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2><i class='bx bx-cart'></i> Tu Carrito</h2>
+        <button id="closeCartBtn" class="close-btn"><i class='bx bx-x'></i></button>
+      </div>
+      <div class="modal-body">
+        <div id="cartItemsList" class="cart-items">
+          <!-- Items will be injected here -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="cart-total">Total: <span id="cartTotalDisplay">$ 0</span></div>
+        <button id="checkoutBtn" class="btn btn-primary">Confirmar Pedido</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script src="/js/api.js"></script>
   <script src="/js/auth-state.js"></script>
@@ -167,5 +187,6 @@
   <script src="/js/pizza-render.js"></script>
   <script src="/js/pizza-animations.js"></script>
   <script src="/js/builder.js"></script>
+  <script src="/js/cart.js"></script>
 </body>
 </html>

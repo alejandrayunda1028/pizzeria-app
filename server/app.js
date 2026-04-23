@@ -40,10 +40,13 @@ app.use(
   })
 );
 
+const ordersRoutes = require('./routes/orders.routes');
+
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/pizza', pizzaRoutes);
+app.use('/api/orders', ordersRoutes);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
