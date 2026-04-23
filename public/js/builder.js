@@ -14,7 +14,7 @@ async function validateSession() {
   const result = await apiRequest('/api/auth/me');
 
   if (!result.ok) {
-    window.location.href = '/login.html';
+    window.location.href = '/login.html?redirect=/builder.html';
     return false;
   }
 

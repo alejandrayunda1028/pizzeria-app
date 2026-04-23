@@ -52,8 +52,11 @@ if (loginForm) {
 
       if (result.ok) {
         showMessage('¡Acceso exitoso! Redirigiendo...', false);
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirectTo = urlParams.get('redirect') || '/index.html';
+        
         setTimeout(() => {
-          window.location.href = '/builder.html';
+          window.location.href = redirectTo;
         }, 800);
       } else {
         showMessage(result.message || 'Error al iniciar sesión', true);
@@ -121,10 +124,12 @@ if (registerForm) {
       const result = await apiRequest('/api/auth/register', 'POST', { name, email, password });
 
       if (result.ok) {
-        showMessage('¡Cuenta creada exitosamente! Redirigiendo...', false);
+        showMessage('¡Cuenta creada exitosamente! Por favor inicia sesión.', false);
         setTimeout(() => {
-          window.location.href = '/builder.html';
-        }, 1000);
+          switchTab('login');
+          const loginEmailInput = loginForm.querySelector('input[name="email"]');
+          if (loginEmailInput) loginEmailInput.value = email;
+        }, 1500);
       } else {
         showMessage(result.message || 'Error al registrarse', true);
       }

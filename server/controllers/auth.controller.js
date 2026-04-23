@@ -34,16 +34,9 @@ async function register(req, res) {
 
     const newUser = await userService.createUser({ name, email, password });
 
-    req.session.user = {
-      id: newUser.id,
-      name: newUser.name,
-      email: newUser.email
-    };
-
     return res.status(201).json({
       ok: true,
-      message: 'Usuario registrado correctamente',
-      user: req.session.user
+      message: 'Usuario registrado correctamente. Por favor inicia sesión.'
     });
   } catch (error) {
     console.error('Registration error:', error);

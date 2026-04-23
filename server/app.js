@@ -22,6 +22,9 @@ const apiLimiter = rateLimit({
 
 app.use('/api/', apiLimiter);
 
+// Esto es CRÍTICO para que las cookies seguras funcionen detrás de un proxy (como Railway)
+app.set('trust proxy', 1);
+
 app.use(
   session({
     secret: 'mi_secreto_pizzeria_super_seguro_2026', // Consider using env vars
