@@ -68,7 +68,12 @@ if (loginForm) {
       if (result.ok) {
         showMessage('¡Acceso exitoso! Redirigiendo...', false);
         const urlParams = new URLSearchParams(window.location.search);
-        const redirectTo = urlParams.get('redirect') || '/index.html';
+        let redirectTo = urlParams.get('redirect') || '/index.html';
+        
+        // Redirigir al panel admin si el rol es admin
+        if (result.user && result.user.role === 'admin') {
+          redirectTo = '/admin.html';
+        }
         
         setTimeout(() => {
           window.location.href = redirectTo;

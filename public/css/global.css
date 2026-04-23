@@ -7,11 +7,14 @@
   --bg-tertiary: #1C1C24;
   
   --primary: #F3501D; /* Rojo anaranjado vibrante (Food-tech) */
+  --primary-rgb: 243, 80, 29;
   --primary-hover: #FF6636;
   --accent: #F9C32C; /* Dorado cálido */
   
   --text-main: #F4F4F6;
+  --text: #F4F4F6;
   --text-muted: #A1A1AA;
+  --bg-dark: #0B0B0F;
   
   /* Glassmorphism Sutil */
   --glass-bg: rgba(19, 19, 26, 0.7);

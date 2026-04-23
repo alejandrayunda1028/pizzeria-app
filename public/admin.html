@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Administrativo | CristianMusseSinMoto</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <!-- Boxicons -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body class="admin-body">
+  
+  <aside class="admin-sidebar glass-panel">
+    <div class="sidebar-brand">
+      <i class='bx bxs-pizza text-primary'></i>
+      <span>Admin<span class="text-gradient">Panel</span></span>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+        <i class='bx bx-grid-alt'></i> <span>Dashboard</span>
+      </a>
+      <a href="#orders" class="nav-item" data-tab="orders">
+        <i class='bx bx-receipt'></i> <span>Pedidos</span>
+      </a>
+      <a href="#products" class="nav-item" data-tab="products">
+        <i class='bx bx-box'></i> <span>Productos</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="/index.html" class="nav-item"><i class='bx bx-home-alt'></i> <span>Volver a Inicio</span></a>
+      <button id="logoutBtn" class="nav-item btn-danger-outline" style="width: 100%; border: none; text-align: left; margin-top: 10px;">
+        <i class='bx bx-log-out'></i> <span>Cerrar Sesión</span>
+      </button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <header class="admin-header glass-panel">
+      <div class="header-title">
+        <h2 id="pageTitle">Dashboard</h2>
+      </div>
+      <div class="header-user">
+        <span id="adminName">Cargando...</span>
+        <div class="avatar-small">A</div>
+      </div>
+    </header>
+
+    <div class="admin-content">
+      <!-- DASHBOARD TAB -->
+      <section id="dashboard" class="tab-content active">
+        <div class="stats-grid">
+          <div class="stat-card glass-panel">
+            <div class="stat-icon"><i class='bx bx-shopping-bag'></i></div>
+            <div class="stat-info">
+              <h3>Total Pedidos</h3>
+              <p id="statTotalOrders">0</p>
+            </div>
+          </div>
+          <div class="stat-card glass-panel">
+            <div class="stat-icon"><i class='bx bx-money'></i></div>
+            <div class="stat-info">
+              <h3>Ventas Totales</h3>
+              <p id="statTotalSales">$ 0</p>
+            </div>
+          </div>
+          <div class="stat-card glass-panel">
+            <div class="stat-icon"><i class='bx bx-calendar-star'></i></div>
+            <div class="stat-info">
+              <h3>Pedidos Hoy</h3>
+              <p id="statTodayOrders">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="recent-orders-preview mt-4">
+          <h3>Últimos Pedidos</h3>
+          <div class="table-container glass-panel mt-2">
+            <table class="admin-table" id="recentOrdersTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Cliente</th>
+                  <th>Total</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Rows injected here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ORDERS TAB -->
+      <section id="orders" class="tab-content">
+        <div class="table-container glass-panel">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Pizzas</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="allOrdersTableBody">
+              <!-- Rows injected here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- PRODUCTS TAB -->
+      <section id="products" class="tab-content">
+        <div class="actions-bar mb-3">
+          <button id="addBtn" class="btn btn-primary"><i class='bx bx-plus'></i> Nuevo Producto</button>
+        </div>
+        <div class="table-container glass-panel">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Categoría</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="productsTableBody">
+              <!-- Rows injected here -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="modal-overlay">
+    <div class="modal-content glass-panel" style="max-width: 400px;">
+      <div class="modal-header">
+        <h2 id="modalTitle">Producto</h2>
+        <button id="closeProductModalBtn" class="close-btn"><i class='bx bx-x'></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="productForm">
+          <input type="hidden" id="prodId">
+          <div class="input-group mb-3">
+            <label>Categoría</label>
+            <select id="prodCategory" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; border-radius: 8px;">
+              <option value="size">Tamaño</option>
+              <option value="dough">Masa</option>
+              <option value="sauce">Salsa</option>
+              <option value="cut">Corte</option>
+              <option value="topping">Topping</option>
+            </select>
+          </div>
+          <div class="input-group mb-3">
+            <label>Nombre</label>
+            <input type="text" id="prodName" required style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; border-radius: 8px;">
+          </div>
+          <div class="input-group mb-3">
+            <label>Precio Extra (COP)</label>
+            <input type="number" id="prodPrice" value="0" style="width: 100%; padding: 10px; background: rgba(0,0,0,0.3); border: 1px solid var(--glass-border); color: white; border-radius: 8px;">
+          </div>
+          <div class="input-group mb-3">
+            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+              <input type="checkbox" id="prodActive" checked>
+              <span>Activo (Visible en builder)</span>
+            </label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button type="button" id="saveProductBtn" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

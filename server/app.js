@@ -41,12 +41,14 @@ app.use(
 );
 
 const ordersRoutes = require('./routes/orders.routes');
+const adminRoutes = require('./routes/admin.routes');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/pizza', pizzaRoutes);
 app.use('/api/orders', ordersRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));

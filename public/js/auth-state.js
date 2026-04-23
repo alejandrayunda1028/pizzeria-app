@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (isLogged) {
         navActions.innerHTML = `
           <div class="user-badge glass-panel" style="display: flex; align-items: center; gap: 10px; padding: 6px 16px; border-radius: 50px;">
+            ${data.user.role === 'admin' ? '<a href="/admin.html" class="btn-outline btn-sm" style="border: none; background: transparent; padding: 4px; color: var(--primary);"><i class="bx bx-shield-quarter"></i> Admin</a>' : ''}
             <div class="avatar" style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white;">
               ${data.user.name.charAt(0).toUpperCase()}
             </div>
