@@ -54,4 +54,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
+// Global error handler — siempre devuelve JSON, nunca deja la conexión colgada
+app.use((err, req, res, next) => {
+  console.error('[ERROR GLOBAL]', err.stack || err);
+  res.status(500).json({ ok: false, message: 'Error interno del servidor' });
+});
+
 module.exports = app;

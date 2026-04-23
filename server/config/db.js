@@ -2,7 +2,7 @@ const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 const path = require('path');
 const fs = require('fs');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 
 const dbPath = process.env.DB_PATH || path.join(__dirname, '../data/database.sqlite');

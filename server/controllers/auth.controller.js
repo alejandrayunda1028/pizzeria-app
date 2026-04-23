@@ -59,15 +59,15 @@ async function login(req, res) {
     let { email, password } = req.body;
 
     email = sanitizeInput(email).toLowerCase();
+    console.log('[LOGIN] Intento de login para:', email);
 
     if (!email || !password) {
-      return res.status(400).json({
-        ok: false,
-        message: 'Credenciales inválidas'
-      });
+      console.log('[LOGIN] Faltan campos');
+      return res.status(400).json({ ok: false, message: 'Credenciales inválidas' });
     }
 
     const user = await userService.validateUser(email, password);
+    console.log('[LOGIN] Login exitoso para:', email, '| role:', user.role);
 
     req.session.user = {
       id: user.id,
@@ -82,11 +82,8 @@ async function login(req, res) {
       user: req.session.user
     });
   } catch (error) {
-    // Retornamos genérico "Credenciales inválidas"
-    return res.status(401).json({
-      ok: false,
-      message: 'Credenciales inválidas'
-    });
+    console.error('[LOGIN] Error:', error.message);
+    return res.status(401).json({ ok: false, message: 'Credenciales inválidas' });
   }
 }
 
