@@ -46,11 +46,17 @@ async function register(req, res) {
       user: req.session.user
     });
   } catch (error) {
-    // Si el error es sobre correo duplicado, podríamos lanzar mensaje genérico,
-    // pero usualmente está bien decir que el correo ya está en uso.
+    console.error('Registration error:', error);
+    
+    // Si es nuestro error de validación, mostrar el mensaje.
+    // De lo contrario, error genérico de servidor.
+    const message = error.message === 'El correo ya está registrado' 
+      ? error.message 
+      : 'Ocurrió un error al procesar el registro. Intenta más tarde.';
+      
     return res.status(400).json({
       ok: false,
-      message: error.message
+      message
     });
   }
 }

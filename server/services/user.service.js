@@ -1,45 +1,29 @@
-const fs = require('fs/promises');
-const path = require('path');
 const bcrypt = require('bcryptjs');
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-
-async function readUsers() {
-  const data = await fs.readFile(usersFilePath, 'utf-8');
-  return JSON.parse(data);
-}
-
-async function saveUsers(users) {
-  await fs.writeFile(usersFilePath, JSON.stringify(users, null, 2));
-}
+const { getDB } = require('../config/db');
 
 async function createUser({ name, email, password }) {
-  const users = await readUsers();
+  const db = await getDB();
 
-  const existingUser = users.find((user) => user.email === email);
+  const existingUser = await db.get('SELECT * FROM users WHERE email = ?', email);
   if (existingUser) {
     throw new Error('El correo ya está registrado');
   }
 
   const hashedPassword = await bcrypt.hash(password, 12);
+  const id = Date.now().toString();
 
-  const newUser = {
-    id: Date.now().toString(),
-    name,
-    email,
-    password: hashedPassword
-  };
+  await db.run(
+    'INSERT INTO users (id, name, email, password) VALUES (?, ?, ?, ?)',
+    [id, name, email, hashedPassword]
+  );
 
-  users.push(newUser);
-  await saveUsers(users);
-
-  return newUser;
+  return { id, name, email };
 }
 
 async function validateUser(email, password) {
-  const users = await readUsers();
+  const db = await getDB();
 
-  const user = users.find((item) => item.email === email);
+  const user = await db.get('SELECT * FROM users WHERE email = ?', email);
   if (!user) {
     throw new Error('Credenciales inválidas');
   }
@@ -49,7 +33,7 @@ async function validateUser(email, password) {
     throw new Error('Credenciales inválidas');
   }
 
-  return user;
+  return { id: user.id, name: user.name, email: user.email };
 }
 
 module.exports = {
