@@ -120,12 +120,25 @@
 
 .input-group i {
   position: absolute;
-  left: 16px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
   font-size: 1.2rem;
   transition: color 0.3s ease;
+}
+
+.input-group i:not(.toggle-password) {
+  left: 16px;
+}
+
+.input-group i.toggle-password {
+  right: 16px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.input-group i.toggle-password:hover {
+  color: var(--text);
 }
 
 .input-group input {

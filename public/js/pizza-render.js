@@ -94,15 +94,13 @@ function renderCuts() {
   });
 }
 
-function randomPointInsidePizza(radius) {
-  const centerX = 190; // Actualizado por el nuevo tamaño de 380px
-  const centerY = 190;
+function randomPointInsidePizza(radiusPercent) {
   const angle = Math.random() * Math.PI * 2;
-  const distance = Math.sqrt(Math.random()) * radius;
+  const distance = Math.sqrt(Math.random()) * radiusPercent;
 
   return {
-    x: centerX + Math.cos(angle) * distance,
-    y: centerY + Math.sin(angle) * distance
+    x: 50 + Math.cos(angle) * distance,
+    y: 50 + Math.sin(angle) * distance
   };
 }
 
@@ -120,7 +118,7 @@ function ensureToppingLayout(toppingName, maxQty) {
   while (layout.length < visualQty) {
     const batch = [];
     for (let i = 0; i < config.amount; i += 1) {
-      batch.push(randomPointInsidePizza(125)); // Aumentado el radio para la pizza de 380px
+      batch.push(randomPointInsidePizza(33)); // 33% del tamaño de la pizza
     }
     layout.push(batch);
   }
@@ -131,8 +129,8 @@ function createToppingPiece(toppingName, position, batchIndex = 0) {
   const piece = document.createElement('div');
 
   piece.className = `topping-piece ${config.className}`;
-  piece.style.left = `${position.x}px`;
-  piece.style.top = `${position.y}px`;
+  piece.style.left = `${position.x}%`;
+  piece.style.top = `${position.y}%`;
   piece.dataset.batch = batchIndex; // Para poder identificarlas al animar
 
   return piece;

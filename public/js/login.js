@@ -34,6 +34,21 @@ function showMessage(msg, isError = false) {
   authMessage.className = `auth-message ${isError ? 'error' : 'success'}`;
 }
 
+// Toggle Password Visibility
+const togglePasswords = document.querySelectorAll('.toggle-password');
+togglePasswords.forEach(icon => {
+  icon.addEventListener('click', (e) => {
+    const input = e.target.parentElement.querySelector('input');
+    if (input.type === 'password') {
+      input.type = 'text';
+      e.target.classList.replace('bx-show', 'bx-hide');
+    } else {
+      input.type = 'password';
+      e.target.classList.replace('bx-hide', 'bx-show');
+    }
+  });
+});
+
 // Login Submit
 if (loginForm) {
   loginForm.addEventListener('submit', async (event) => {
