@@ -529,9 +529,44 @@
 }
 
 @media (max-width: 768px) {
-  .builder-dashboard { flex-direction: column; height: auto; overflow-y: auto; }
+  .builder-dashboard { 
+    display: flex; 
+    flex-direction: column; 
+    height: auto; 
+    overflow-y: auto; 
+  }
   .builder-body { overflow-y: auto; }
-  .dashboard-sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--glass-border); padding: 1.5rem; }
+  
+  /* Permite reordenar elementos anidados usando flexbox order */
+  .dashboard-main, .main-content-wrapper { 
+    display: contents; 
+  }
+  
+  .pizza-visualizer { 
+    order: 1; 
+    min-height: 350px; 
+    padding: 2rem 0 1rem; 
+    position: relative;
+    top: 0;
+    margin-bottom: 0;
+  }
+  
+  .dashboard-sidebar { 
+    order: 2; 
+    width: 100%; 
+    border-right: none; 
+    border-bottom: none; 
+    padding: 1.5rem; 
+  }
+  
+  .summary-sidebar { 
+    order: 3; 
+    width: 100%; 
+    padding: 1.5rem; 
+    position: relative;
+    top: 0;
+  }
+  
   .pizza-stage { width: 300px; height: 300px; }
   .pizza { width: 240px; height: 240px; }
   .builder-topbar { padding: 1rem; }
