@@ -1,31 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap');
 
 :root {
-  /* === PIZZA WARM DARK THEME === */
+  /* === TEMA CLARO CÁLIDO — PIZZA === */
 
-  /* Fondos — marrones cálidos de pizza (no negro frío) */
-  --bg-main:      #1A0800;
-  --bg-secondary: #2A1200;
-  --bg-tertiary:  #3A1A00;
+  /* Fondos claros y cálidos como masa de pizza */
+  --bg-main:      #FFFAF5;
+  --bg-secondary: #FFF3E8;
+  --bg-tertiary:  #FFE8D5;
 
-  /* Colores pizza */
-  --primary:       #FF4500;   /* Rojo tomate vibrante */
-  --primary-rgb:   255, 69, 0;
-  --primary-hover: #FF6B35;
-  --accent:        #FFD000;   /* Amarillo queso dorado */
-  --accent-green:  #56AB2F;   /* Verde albahaca */
-  --accent-orange: #FF8C00;   /* Naranja crust/pepperoni */
+  /* Colores pizza (versión legible sobre fondo claro) */
+  --primary:       #D93B0A;   /* Rojo tomate intenso */
+  --primary-rgb:   217, 59, 10;
+  --primary-hover: #FF4500;
+  --accent:        #B8760A;   /* Dorado oscuro (queso) */
+  --accent-green:  #2E7D32;   /* Verde albahaca */
+  --accent-orange: #D4690A;   /* Naranja crust */
 
-  /* Texto */
-  --text-main: #FFF3E0;
-  --text:      #FFF3E0;
-  --text-muted:#C49A6C;
-  --bg-dark:   #1A0800;
+  /* Texto oscuro sobre fondo claro */
+  --text-main: #2D1500;
+  --text:      #2D1500;
+  --text-muted:#8B5533;
+  --bg-dark:   #FFFAF5;
 
-  /* Glassmorphism cálido */
-  --glass-bg:     rgba(42, 18, 0, 0.82);
-  --glass-border: rgba(255, 120, 30, 0.28);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+  /* Glass panel claro con borde cálido */
+  --glass-bg:     rgba(255, 250, 245, 0.92);
+  --glass-border: rgba(200, 90, 20, 0.20);
+  --glass-shadow: 0 8px 32px 0 rgba(100, 40, 0, 0.10);
 
   /* Transiciones */
   --transition-fast:   0.2s ease;
@@ -41,11 +41,11 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-main);
-  /* Gradiente de fondo cálido tipo fogón de pizzería */
+  /* Gradiente tipo fogón suave sobre fondo claro */
   background-image:
-    radial-gradient(ellipse at 80% 10%, rgba(255, 69, 0, 0.12) 0%, transparent 45%),
-    radial-gradient(ellipse at 10% 90%, rgba(255, 208, 0, 0.08) 0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(86, 171, 47, 0.04) 0%, transparent 60%);
+    radial-gradient(ellipse at 85% 5%,  rgba(217, 59, 10, 0.09) 0%, transparent 40%),
+    radial-gradient(ellipse at 5%  95%, rgba(184, 118, 10, 0.08) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(46, 125, 50, 0.04)  0%, transparent 55%);
   background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
@@ -66,14 +66,13 @@ a {
 
 ul { list-style: none; }
 
-/* Contenedor */
 .container {
   width: 92%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Glass panel cálido */
+/* Panel glass sobre fondo claro */
 .glass-panel {
   background: var(--glass-bg);
   backdrop-filter: blur(14px);
@@ -100,43 +99,38 @@ ul { list-style: none; }
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #FF4500, #CC2200);
+  background: linear-gradient(135deg, #D93B0A, #A82D07);
   color: #fff;
-  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.45);
+  box-shadow: 0 4px 18px rgba(217, 59, 10, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.55);
-  background: linear-gradient(135deg, #FF6B35, #FF4500);
+  box-shadow: 0 8px 24px rgba(217, 59, 10, 0.45);
+  background: linear-gradient(135deg, #FF4500, #D93B0A);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(4px);
+  color: var(--primary);
+  border: 2px solid rgba(217, 59, 10, 0.35);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 120, 30, 0.1);
-  border-color: rgba(255, 120, 30, 0.4);
-  color: var(--accent);
+  background: rgba(217, 59, 10, 0.08);
+  border-color: var(--primary);
 }
 
 /* Gradiente texto tricolor pizza */
 .text-gradient {
-  background: linear-gradient(90deg, #FF4500 0%, #FFD000 50%, #56AB2F 100%);
+  background: linear-gradient(90deg, #D93B0A 0%, #C8850A 50%, #2E7D32 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Scrollbar cálida */
+/* Scrollbar cálida sobre fondo claro */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: var(--bg-main); }
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 120, 30, 0.35);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover { background: rgba(255, 69, 0, 0.6); }
+::-webkit-scrollbar-track { background: #FFF3E8; }
+::-webkit-scrollbar-thumb { background: rgba(200, 90, 20, 0.3); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(217, 59, 10, 0.55); }
