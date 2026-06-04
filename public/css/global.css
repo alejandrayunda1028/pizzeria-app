@@ -1,28 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap');
 
 :root {
-  /* Paleta Dark Mode Premium */
-  --bg-main: #0B0B0F;
-  --bg-secondary: #13131A;
-  --bg-tertiary: #1C1C24;
-  
-  --primary: #F3501D; /* Rojo anaranjado vibrante (Food-tech) */
-  --primary-rgb: 243, 80, 29;
-  --primary-hover: #FF6636;
-  --accent: #F9C32C; /* Dorado cálido */
-  
-  --text-main: #F4F4F6;
-  --text: #F4F4F6;
-  --text-muted: #A1A1AA;
-  --bg-dark: #0B0B0F;
-  
-  /* Glassmorphism Sutil */
-  --glass-bg: rgba(19, 19, 26, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.06);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  
+  /* === PIZZA WARM DARK THEME === */
+
+  /* Fondos — marrones cálidos de pizza (no negro frío) */
+  --bg-main:      #1A0800;
+  --bg-secondary: #2A1200;
+  --bg-tertiary:  #3A1A00;
+
+  /* Colores pizza */
+  --primary:       #FF4500;   /* Rojo tomate vibrante */
+  --primary-rgb:   255, 69, 0;
+  --primary-hover: #FF6B35;
+  --accent:        #FFD000;   /* Amarillo queso dorado */
+  --accent-green:  #56AB2F;   /* Verde albahaca */
+  --accent-orange: #FF8C00;   /* Naranja crust/pepperoni */
+
+  /* Texto */
+  --text-main: #FFF3E0;
+  --text:      #FFF3E0;
+  --text-muted:#C49A6C;
+  --bg-dark:   #1A0800;
+
+  /* Glassmorphism cálido */
+  --glass-bg:     rgba(42, 18, 0, 0.82);
+  --glass-border: rgba(255, 120, 30, 0.28);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+
   /* Transiciones */
-  --transition-fast: 0.2s ease;
+  --transition-fast:   0.2s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -35,6 +41,12 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-main);
+  /* Gradiente de fondo cálido tipo fogón de pizzería */
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgba(255, 69, 0, 0.12) 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 90%, rgba(255, 208, 0, 0.08) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(86, 171, 47, 0.04) 0%, transparent 60%);
+  background-attachment: fixed;
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
@@ -52,27 +64,26 @@ a {
   transition: color var(--transition-fast);
 }
 
-ul {
-  list-style: none;
-}
+ul { list-style: none; }
 
-/* Utilidades Comunes */
+/* Contenedor */
 .container {
   width: 92%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Glass panel cálido */
 .glass-panel {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   border-radius: 16px;
 }
 
-/* Botones */
+/* ── Botones ── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -89,15 +100,15 @@ ul {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), #D33D10);
+  background: linear-gradient(135deg, #FF4500, #CC2200);
   color: #fff;
-  box-shadow: 0 4px 15px rgba(243, 80, 29, 0.3);
+  box-shadow: 0 4px 18px rgba(255, 69, 0, 0.45);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(243, 80, 29, 0.4);
-  background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+  box-shadow: 0 8px 24px rgba(255, 69, 0, 0.55);
+  background: linear-gradient(135deg, #FF6B35, #FF4500);
 }
 
 .btn-outline {
@@ -108,34 +119,24 @@ ul {
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 120, 30, 0.1);
+  border-color: rgba(255, 120, 30, 0.4);
+  color: var(--accent);
 }
 
+/* Gradiente texto tricolor pizza */
 .text-gradient {
-  background: linear-gradient(90deg, #F3501D, #F9C32C);
+  background: linear-gradient(90deg, #FF4500 0%, #FFD000 50%, #56AB2F 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Custom Scrollbar Premium */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-  border-left: 1px solid var(--glass-border);
-}
-
+/* Scrollbar cálida */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-main); }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 120, 30, 0.35);
   border-radius: 10px;
-  transition: background var(--transition-fast);
 }
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(243, 80, 29, 0.5); /* Primary color con opacidad */
-}
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 69, 0, 0.6); }

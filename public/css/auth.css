@@ -3,16 +3,18 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: radial-gradient(circle at top right, rgba(211, 84, 0, 0.1) 0%, transparent 40%),
-                    radial-gradient(circle at bottom left, rgba(211, 84, 0, 0.05) 0%, transparent 40%);
+  /* Fondo pizza: rojo tomate + dorado + verde */
+  background-image:
+    radial-gradient(circle at top right,   rgba(255, 69, 0, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at bottom left, rgba(255, 208, 0, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at center,      rgba(86, 171, 47, 0.05) 0%, transparent 60%);
   position: relative;
 }
 
 .back-btn {
   position: absolute;
-  top: 30px;
-  left: 30px;
-  color: var(--text);
+  top: 30px; left: 30px;
+  color: var(--text-muted);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -22,13 +24,8 @@
   z-index: 10;
 }
 
-.back-btn:hover {
-  color: var(--primary);
-}
-
-.back-btn i {
-  font-size: 1.5rem;
-}
+.back-btn:hover { color: var(--accent); }
+.back-btn i { font-size: 1.5rem; }
 
 .auth-container {
   width: 100%;
@@ -41,9 +38,12 @@
   padding: 40px;
   border-radius: 20px;
   backdrop-filter: blur(20px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  background: rgba(30, 30, 30, 0.6);
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.6),
+    0 0 0 1px rgba(255, 120, 30, 0.2),
+    inset 0 1px 0 rgba(255, 208, 0, 0.08);
+  border: 1px solid rgba(255, 120, 30, 0.25);
+  background: rgba(42, 18, 0, 0.85);
 }
 
 .auth-header {
@@ -61,22 +61,18 @@
   margin-bottom: 10px;
 }
 
-.auth-header .logo i {
-  color: var(--primary);
-}
+.auth-header .logo i { color: var(--primary); }
 
-.auth-subtitle {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-}
+.auth-subtitle { color: var(--text-muted); font-size: 0.95rem; }
 
 /* Toggle buttons */
 .auth-toggle {
   display: flex;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   padding: 5px;
   margin-bottom: 30px;
+  border: 1px solid rgba(255, 120, 30, 0.15);
 }
 
 .toggle-btn {
@@ -93,9 +89,10 @@
 }
 
 .toggle-btn.active {
-  background: var(--surface);
-  color: var(--text);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: linear-gradient(135deg, rgba(255, 69, 0, 0.3), rgba(255, 140, 0, 0.2));
+  color: var(--accent);
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.2);
+  border: 1px solid rgba(255, 120, 30, 0.3);
 }
 
 /* Forms */
@@ -104,13 +101,11 @@
   animation: fadeIn 0.4s ease forwards;
 }
 
-.auth-form.active {
-  display: block;
-}
+.auth-form.active { display: block; }
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .input-group {
@@ -127,24 +122,14 @@
   transition: color 0.3s ease;
 }
 
-.input-group i:not(.toggle-password) {
-  left: 16px;
-}
-
-.input-group i.toggle-password {
-  right: 16px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.input-group i.toggle-password:hover {
-  color: var(--text);
-}
+.input-group i:not(.toggle-password) { left: 16px; }
+.input-group i.toggle-password { right: 16px; cursor: pointer; z-index: 10; }
+.input-group i.toggle-password:hover { color: var(--accent); }
 
 .input-group input {
   width: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 120, 30, 0.2);
   color: var(--text);
   padding: 14px 16px 14px 45px;
   border-radius: 10px;
@@ -156,14 +141,11 @@
 .input-group input:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 0 3px rgba(211, 84, 0, 0.15);
+  background: rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0 0 3px rgba(255, 69, 0, 0.18);
 }
 
-.input-group input:focus + i,
-.input-group input:not(:placeholder-shown) + i {
-  color: var(--primary);
-}
+.input-group input:focus ~ i:not(.toggle-password) { color: var(--primary); }
 
 /* Options row */
 .form-options {
@@ -184,20 +166,12 @@
 
 .remember-me input[type="checkbox"] {
   accent-color: var(--primary);
-  width: 16px;
-  height: 16px;
+  width: 16px; height: 16px;
   cursor: pointer;
 }
 
-.forgot-password {
-  color: var(--primary);
-  text-decoration: none;
-  transition: text-shadow 0.3s ease;
-}
-
-.forgot-password:hover {
-  text-shadow: 0 0 8px rgba(211, 84, 0, 0.5);
-}
+.forgot-password { color: var(--accent); text-decoration: none; transition: text-shadow 0.3s ease; }
+.forgot-password:hover { text-shadow: 0 0 8px rgba(255, 208, 0, 0.5); }
 
 /* Buttons */
 .btn-block {
@@ -219,13 +193,8 @@
   transition: all 0.3s ease;
 }
 
-.auth-message.error {
-  color: #ff4757;
-}
-
-.auth-message.success {
-  color: #2ed573;
-}
+.auth-message.error   { color: #FF4500; }
+.auth-message.success { color: var(--accent-green); }
 
 /* Password hints */
 .password-hints {
@@ -244,25 +213,13 @@
   transition: color 0.3s ease;
 }
 
-.hint i {
-  font-size: 1.1rem;
-}
+.hint i { font-size: 1.1rem; }
 
-.hint.valid {
-  color: #2ed573;
-}
-.hint.valid i::before {
-  content: "\ea3e"; /* bx-check */
-}
+.hint.valid       { color: var(--accent-green); }
+.hint.valid i::before { content: "\ea3e"; }
 
 /* Responsive */
 @media (max-width: 480px) {
-  .auth-card {
-    padding: 30px 20px;
-  }
-  
-  .back-btn {
-    top: 20px;
-    left: 20px;
-  }
+  .auth-card { padding: 30px 20px; }
+  .back-btn  { top: 20px; left: 20px; }
 }
