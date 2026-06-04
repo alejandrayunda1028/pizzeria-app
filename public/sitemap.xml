@@ -1,34 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-
-  <!-- Página principal — prioridad máxima -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pizzeria-app-1-qtbs.onrender.com/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://pizzeria-app-1-qtbs.onrender.com/assets/hero-pizza.png</image:loc>
-      <image:title>Pizza artesanal PizzaYA</image:title>
-      <image:caption>Pizza artesanal personalizada con ingredientes frescos</image:caption>
-    </image:image>
   </url>
-
-  <!-- Configurador de pizza — página de conversión -->
   <url>
     <loc>https://pizzeria-app-1-qtbs.onrender.com/builder.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <!-- Login — baja prioridad SEO -->
   <url>
     <loc>https://pizzeria-app-1-qtbs.onrender.com/login.html</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
-
 </urlset>
