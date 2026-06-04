@@ -3,39 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PizzaYA | Pizza Artesanal a Tu Manera</title>
+
+  <!-- ═══════════════════════════════════════════
+       SEO TÍTULO — descriptivo, con keyword principal al inicio
+       ═══════════════════════════════════════════ -->
+  <title>PizzaYA — Pizza Artesanal Online | Pide y Personaliza tu Pizza</title>
+
+  <!-- Favicon + color de pestaña en móviles -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta name="theme-color" content="#D93B0A">
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Crea tu pizza perfecta online. Elige ingredientes frescos, masa artesanal y personaliza cada detalle. Pide ahora y recíbela en minutos.">
-  <meta name="keywords" content="pizzería, pizza artesanal, pizza online, pedir pizza, pizza personalizada, pizza a domicilio">
+  <!-- ═══════════════════════════════════════════
+       SEO BÁSICO
+       ═══════════════════════════════════════════ -->
+  <!-- Descripción: 150-160 caracteres, incluye keyword + llamada a la acción -->
+  <meta name="description" content="Pide tu pizza artesanal online en PizzaYA. Personaliza tamaño, masa, salsa y toppings frescos. Entrega rápida. ¡Arma la pizza de tus sueños ahora!">
+  <meta name="keywords" content="pizza artesanal, pedir pizza online, pizzería online, pizza personalizada, pizza a domicilio, pizza colombiana, armar pizza">
   <meta name="author" content="PizzaYA">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="language" content="Spanish">
+  <!-- URL canónica: evita contenido duplicado -->
+  <link rel="canonical" href="https://pizzeria-app-1-qtbs.onrender.com/">
 
-  <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
-  <meta property="og:title" content="PizzaYA | Pizza Artesanal a Tu Manera">
-  <meta property="og:description" content="Crea tu pizza perfecta online con ingredientes frescos y masa artesanal. ¡Personaliza cada detalle!">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/hero-pizza.png">
+  <!-- ═══════════════════════════════════════════
+       OPEN GRAPH — WhatsApp, Facebook, LinkedIn
+       ═══════════════════════════════════════════ -->
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="PizzaYA">
+  <meta property="og:title"       content="PizzaYA — Pizza Artesanal Online | Personaliza tu Pizza">
+  <meta property="og:description" content="Elige ingredientes frescos, masa artesanal y personaliza cada detalle de tu pizza. Pide ahora en PizzaYA y recíbela en minutos.">
+  <meta property="og:url"         content="https://pizzeria-app-1-qtbs.onrender.com/">
+  <meta property="og:image"       content="https://pizzeria-app-1-qtbs.onrender.com/assets/hero-pizza.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height"content="630">
+  <meta property="og:locale"      content="es_CO">
 
-  <!-- Datos estructurados para Google (JSON-LD) -->
+  <!-- ═══════════════════════════════════════════
+       TWITTER CARD — vista previa en Twitter/X
+       ═══════════════════════════════════════════ -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="PizzaYA — Pizza Artesanal Online">
+  <meta name="twitter:description" content="Personaliza tu pizza artesanal con ingredientes frescos. ¡Pide ahora y recíbela rápido!">
+  <meta name="twitter:image"       content="https://pizzeria-app-1-qtbs.onrender.com/assets/hero-pizza.png">
+
+  <!-- ═══════════════════════════════════════════
+       DATOS ESTRUCTURADOS JSON-LD
+       Google los usa para mostrar Rich Results
+       ═══════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Restaurant",
     "name": "PizzaYA",
-    "description": "Pizzería artesanal online. Personaliza tu pizza con ingredientes frescos y masa artesanal.",
-    "servesCuisine": "Pizza",
+    "description": "Pizzería artesanal online con personalización total de ingredientes. Masa artesanal, ingredientes frescos y entrega rápida.",
+    "url": "https://pizzeria-app-1-qtbs.onrender.com",
+    "image": "https://pizzeria-app-1-qtbs.onrender.com/assets/hero-pizza.png",
+    "servesCuisine": ["Pizza", "Comida italiana", "Comida rápida"],
     "priceRange": "$$",
-    "url": "https://TU-NOMBRE.onrender.com",
-    "image": "https://TU-NOMBRE.onrender.com/assets/hero-pizza.png",
-    "hasMenu": "https://TU-NOMBRE.onrender.com/builder.html",
+    "currenciesAccepted": "COP",
+    "paymentAccepted": "Efectivo, Tarjeta",
+    "hasMenu": "https://pizzeria-app-1-qtbs.onrender.com/builder.html",
+    "potentialAction": {
+      "@type": "OrderAction",
+      "target": "https://pizzeria-app-1-qtbs.onrender.com/builder.html"
+    },
     "offers": {
-      "@type": "Offer",
-      "description": "Pizzas artesanales personalizadas desde $15.000"
+      "@type": "AggregateOffer",
+      "lowPrice": "15000",
+      "highPrice": "45000",
+      "priceCurrency": "COP",
+      "description": "Pizzas artesanales personalizadas"
     }
   }
   </script>
+
+  <!-- ═══════════════════════════════════════════
+       RENDIMIENTO — preconnect acelera la carga
+       de fuentes externas (mejora Core Web Vitals)
+       ═══════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com">
 
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/home.css">

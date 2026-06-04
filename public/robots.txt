@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /admin
+Allow: /builder.html
+Disallow: /admin.html
 Disallow: /api/
 
-Sitemap: https://TU-NOMBRE.onrender.com/sitemap.xml
+# Velocidad de rastreo: no saturar el servidor gratuito de Render
+Crawl-delay: 5
+
+Sitemap: https://pizzeria-app-1-qtbs.onrender.com/sitemap.xml
