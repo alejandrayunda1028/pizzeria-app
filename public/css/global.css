@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800;900&display=swap');
 
 :root {
-  /* Fondos blancos y crema */
-  --bg-main:      #FFFFFF;
-  --bg-secondary: #FFF8F2;
-  --bg-tertiary:  #FFF0E0;
+  /* Fondos crema cálido (no blanco puro, no oscuro) */
+  --bg-main:      #FAF5EF;
+  --bg-secondary: #F5EDE0;
+  --bg-tertiary:  #EFE0CC;
 
   /* Colores pizza */
   --primary:       #D93B0A;
@@ -17,10 +17,10 @@
   /* Texto oscuro */
   --text-main: #1A0800;
   --text:      #1A0800;
-  --text-muted:#7A4A25;
-  --bg-dark:   #FFFFFF;
+  --text-muted:#6B3E1A;
+  --bg-dark:   #FAF5EF;
 
-  /* Paneles */
+  /* Paneles (blanco puro para que contraste con el fondo crema) */
   --glass-bg:     #FFFFFF;
   --glass-border: rgba(200, 90, 20, 0.18);
   --glass-shadow: 0 4px 20px rgba(100, 40, 0, 0.08);
@@ -33,7 +33,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #FFFFFF;
+  background-color: var(--bg-main);
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;

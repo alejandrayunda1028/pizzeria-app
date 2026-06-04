@@ -10,8 +10,8 @@
   padding: 1rem 0;
   border-radius: 0;
   background: #FFFFFF;
-  border-bottom: 1px solid rgba(200, 90, 20, 0.15);
-  box-shadow: 0 2px 16px rgba(100, 40, 0, 0.07);
+  border-bottom: 2px solid rgba(200, 90, 20, 0.20);
+  box-shadow: 0 2px 20px rgba(100, 40, 0, 0.12);
 }
 
 .nav-content { display: flex; justify-content: space-between; align-items: center; }
@@ -20,12 +20,15 @@
   display: flex; align-items: center; gap: 8px;
   font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 800;
   color: var(--text-main);
+  text-decoration: none;
+  transition: opacity 0.2s;
 }
+.logo:hover { opacity: 0.85; }
 .logo i { color: var(--primary); font-size: 1.8rem; }
 
 .nav-links { display: flex; gap: 2rem; }
-.nav-links a { font-weight: 500; color: var(--text-muted); position: relative; transition: color 0.2s; }
-.nav-links a:hover { color: var(--primary); }
+/* Texto de links oscuro y fuerte para que se lea bien sobre el fondo blanco */
+.nav-links a { font-weight: 600; color: var(--text-main); position: relative; transition: color 0.2s; }
 .nav-links a::after {
   content: ''; position: absolute; bottom: -4px; left: 0;
   width: 0; height: 2px;
@@ -40,7 +43,7 @@
   padding-top: 120px;
   min-height: 100vh;
   display: flex; align-items: center;
-  background: linear-gradient(135deg, #FFFFFF 60%, #FFF0E0 100%);
+  background: linear-gradient(135deg, #FAF5EF 60%, #EFE0CC 100%);
   position: relative; overflow: hidden;
 }
 
@@ -106,15 +109,15 @@
 }
 
 /* Sections */
-.section { padding: 6rem 0; background: #FFFFFF; }
-.section:nth-child(even) { background: #FFF8F2; }
+.section { padding: 6rem 0; background: #FAF5EF; }
+.section:nth-child(even) { background: #F5EDE0; }
 
 /* Features */
 .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 
 .feature-card {
   padding: 2.5rem 2rem; text-align: center;
-  background: #FFFFFF;
+  background: #FFFFFF; /* tarjetas blancas sobre fondo crema — contraste visible */
   border: 1px solid rgba(200, 90, 20, 0.12);
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(100, 40, 0, 0.06);

@@ -1,6 +1,6 @@
 /* ADMIN — TEMA BLANCO CLARO */
 
-.admin-body { display: flex; height: 100vh; overflow: hidden; background: #F5F5F5; }
+.admin-body { display: flex; height: 100vh; overflow: hidden; background: var(--bg-main); }
 
 /* Sidebar */
 .admin-sidebar {
@@ -52,7 +52,7 @@
   box-shadow: 0 4px 12px rgba(217, 59, 10, 0.25);
 }
 
-.admin-content { flex-grow: 1; padding: 30px; overflow-y: auto; background: #F5F5F5; }
+.admin-content { flex-grow: 1; padding: 30px; overflow-y: auto; background: var(--bg-secondary); }
 
 .tab-content { display: none; }
 .tab-content.active { display: block; }
