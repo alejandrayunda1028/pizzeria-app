@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 server/data/users.json
 server/data/orders.json
+
+# SQLite — se genera en tiempo de ejecución en Render
+data/database.sqlite
+server/data/database.sqlite
