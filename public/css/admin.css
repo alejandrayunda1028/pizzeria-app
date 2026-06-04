@@ -36,13 +36,13 @@
 
 .admin-header {
   height: 70px; display: flex; justify-content: space-between; align-items: center;
-  padding: 0 30px; background: #FFFFFF;
-  border-bottom: 1px solid rgba(200, 90, 20, 0.12);
-  box-shadow: 0 2px 8px rgba(100, 40, 0, 0.06);
+  padding: 0 30px;
+  background: linear-gradient(135deg, #B83008 0%, #D93B0A 60%, #E84B1C 100%);
+  box-shadow: 0 4px 20px rgba(180, 40, 0, 0.30);
 }
 
-.header-title h2 { font-size: 1.4rem; font-weight: 600; color: var(--text-main); }
-.header-user { display: flex; align-items: center; gap: 15px; }
+.header-title h2 { font-size: 1.4rem; font-weight: 600; color: #FFFFFF; }
+.header-user { display: flex; align-items: center; gap: 15px; color: rgba(255,255,255,0.85); }
 
 .avatar-small {
   width: 40px; height: 40px; border-radius: 50%;
